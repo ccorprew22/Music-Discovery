@@ -7,7 +7,7 @@
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-  <!--<link rel="stylesheet" href={{ url_for('static', filename='styles.css')}} />-->
+  <link rel="stylesheet" href={{ url_for('static', filename='styles.css')}} />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 </head>
@@ -18,8 +18,30 @@
     <h1 class="text-white" >Music Discovery</h1>
   </div>
   <div class="card mx-auto text-center" style="width: 258px; height: 500px">
-    
+    <img class="card-img-top" src="{{artist['image']}}" style="height: 256px; width: 256px;">
+    {% if error == True %}
+      <h3>Artist not found</h3>
+    {% endif %}
     <div class="card-body text-center">
+      <h4 class="title">{{artist['track']}}</h4>
+      <p>by {{artist['artist']}}</p>
+      <!-- Audio Preview -->
+      {% if artist['preview'] == None %}
+        <p>No preview available</p>
+      {% else %}
+        <div class="d-flex justify-content-center">
+          <audio controls src="{{ artist['preview']}}">
+                Your browser does not support the
+                <code>audio</code> element.
+          </audio>
+        </div>
+      {% endif %}
+      <!-- End of Audio Preview -->
+      <form action="/" method="post">
+        <input type="hidden" name="artist" value="{{artist['artist']}}">
+        <input type="hidden" name="track" value="{{artist['track']}}">
+        <button type="submit" class="btn btn-primary" role="button" name="search_lyrics">Search Lyrics</button>
+      </form>
     </div>
   </div>
   <br>
