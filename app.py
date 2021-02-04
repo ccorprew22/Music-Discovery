@@ -15,6 +15,16 @@ def index():
             artist = Artist(i)
             a = artist.random_track()
             print(a)
+        elif request.method == 'POST' and "search_lyrics" in request.form: #redirects to genius url
+            try:
+                name = request.form['artist']
+                song = request.form['track']
+                artist = Artist(None, song, name)
+                url = artist.lyrics()
+                return redirect(url)
+            except:
+                print("Baby Shark working")
+                return redirect("https://genius.com/Pinkfong-baby-shark-lyrics")
         else:
             i = random.randint(0, len(artist_ids)-1)
             artist = Artist(i)

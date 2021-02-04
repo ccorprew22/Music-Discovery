@@ -5,7 +5,7 @@ import random
 import os
 from dotenv import load_dotenv, find_dotenv
 
-artist_ids = [["The Weeknd", "1Xyo4u8uXC1ZmMpatF05PJ"], ["ASAP Rocky", "13ubrt8QOOCPljQ2FL1Kca"], ["Drake", "3TVXtAsR1Inumwj472S9r4"], ["Post Malone", "246dkjvS1zLTtiykXe5h60"], ["Lil Baby","5f7VJjfbwm532GiveGC0ZK"], ["DaBaby", "4r63FhuTkUYltbVAg5TQnk"], ["Roddy Ricch", "757aE44tKEUQEqRuT6GnEB"]]
+artist_ids = [["The Weeknd", "1Xyo4u8uXC1ZmMpatF05PJ"], ["ASAP Rocky", "13ubrt8QOOCPljQ2FL1Kca"], ["Drake", "3TVXtAsR1Inumwj472S9r4"], ["Post Malone", "246dkjvS1zLTtiykXe5h60"], ["Lil Baby","5f7VJjfbwm532GiveGC0ZK"], ["DaBaby", "4r63FhuTkUYltbVAg5TQnk"], ["Roddy Ricch", "757aE44tKEUQEqRuT6GnEB"],["Wiz Khalifa", "137W8MRPWKqSmrBGDBFSop"]]
 
 load_dotenv(find_dotenv())
 
@@ -56,6 +56,26 @@ class Artist:
         response_json = response.json()
         track_info = self.top_track(response_json, token)
         return track_info
+        
+    def lyrics(self):
+        print(self.song)
+        query = "https://api.genius.com/search?q=" + urllib2.quote(self.song) #puts %20 between words
+
+        response = requests.get(query, headers={"Content-Type": "application/json",
+                                                "Authorization": "Bearer {}".format(os.getenv('genius_access_token')),
+                                                "User-Agent":""})
+        print(response)
+        response_json = response.json()
+        hits_lst = response_json['response']['hits']
+        url = ""
+        for hit in hits_lst:
+            result = hit['result']
+            primary_artist = result['primary_artist']
+            if self.artist == primary_artist['name']:
+                url = result['url']
+                break
+        print(url)
+        return url
         
 #artist = Artist(3)
 #print(artist.random_track())
