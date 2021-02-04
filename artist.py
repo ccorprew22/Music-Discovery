@@ -78,5 +78,8 @@ class Artist:
         print(url)
         return url
         
+    def search(self):
+        
+        return track_info
 #artist = Artist(3)
 #print(artist.random_track())

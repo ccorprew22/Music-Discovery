@@ -17,6 +17,19 @@
   <div class="text-center">
     <h1 class="text-white" >Music Discovery</h1>
   </div>
+  <!-- Search Box -->
+  <form class="form-group row" action="/" method="post">
+    <div class="form-row mx-auto">
+      <div class=" card-title col-xs-4">
+        <input type="text" class="form-control" name="artist_input"  placeholder="Enter artist">
+      </div>
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-primary mb-4" name="search-btn" aria-pressed="true" role="button">Search</button>
+      </div>
+    </div>
+  </form>
+  <!-- Search Box END -->
+  <!-- Card Display -->
   <div class="card mx-auto text-center" style="width: 258px; height: 500px">
     <img class="card-img-top" src="{{artist['image']}}" style="height: 256px; width: 256px;">
     {% if error == True %}
@@ -47,6 +60,7 @@
       {% endif %}
     </div>
   </div>
+  <!-- Card display END -->
   <br>
   <div class="row justify-content-center">
     <form class="mx-auto" action"/" method="post">

@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/index', methods=['POST', 'GET'])
+global artist_hist
+artist_hist = []
 def index():
     try:
         if request.method == 'POST' and "refresh" in request.form:
@@ -31,6 +33,14 @@ def index():
             except:
                 print("Baby Shark working")
                 return redirect("https://genius.com/Pinkfong-baby-shark-lyrics")
+        elif request.method == 'POST' and "search-btn" in request.form: #searches for input artist
+            try:
+                name = request.form['artist_input']
+                artist = Artist(None, None, name)
+                a = artist.search()
+            except:#This except function has an error message with the redirect
+                track_info = {"artist": "Pinkfong", "album": "Baby Shark Special", "track": "Baby Shark", "image": "/static/baby_shark.jpg", "preview": "/static/baby_shark.mp3"}
+                return render_template('index.html', artist=track_info, error=True, history=artist_hist, length=len(artist_hist))
         else:
             i = random.randint(0, len(artist_ids)-1)
             artist = Artist(i)
