@@ -67,11 +67,12 @@ class Artist:
         print(response)
         response_json = response.json()
         hits_lst = response_json['response']['hits']
-        url = ""
+        print(hits_lst)
+        url = None
         for hit in hits_lst:
             result = hit['result']
             primary_artist = result['primary_artist']
-            if self.artist == primary_artist['name']:
+            if self.artist in primary_artist['name']:
                 url = result['url']
                 break
         print(url)

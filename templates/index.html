@@ -42,6 +42,9 @@
         <input type="hidden" name="track" value="{{artist['track']}}">
         <button type="submit" class="btn btn-primary" role="button" name="search_lyrics">Search Lyrics</button>
       </form>
+      {% if lyric_error == True %}
+        <h4>Lyrics not found</h4>
+      {% endif %}
     </div>
   </div>
   <br>
