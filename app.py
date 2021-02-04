@@ -5,12 +5,12 @@ import random
 import os
 
 app = Flask(__name__)
-
-@app.route('/', methods=['POST', 'GET'])
-@app.route('/index', methods=['POST', 'GET'])
 global artist_hist
 artist_hist = []
+@app.route('/', methods=['POST', 'GET'])
+@app.route('/index', methods=['POST', 'GET'])
 def index():
+    global artist_hist
     try:
         if request.method == 'POST' and "refresh" in request.form:
             i = random.randint(0, len(artist_ids)-1)
