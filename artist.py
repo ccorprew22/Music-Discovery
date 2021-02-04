@@ -67,7 +67,7 @@ class Artist:
         print(response)
         response_json = response.json()
         hits_lst = response_json['response']['hits']
-        print(hits_lst)
+        #print(hits_lst)
         url = None
         for hit in hits_lst:
             result = hit['result']
