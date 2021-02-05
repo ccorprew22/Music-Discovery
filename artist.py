@@ -79,7 +79,18 @@ class Artist:
         return url
         
     def search(self):
-        
+        search = "https://api.spotify.com/v1/search?q=" + urllib2.quote(self.artist) + "&type=artist"
+        token = refresh()
+        response = requests.get(search, headers={"Content-Type": "application/json",
+                                                "Authorization": "Bearer {}".format(token)})
+        search_json = response.json()
+        artist_id = search_json["artists"]["items"][0]["id"]
+        query = "https://api.spotify.com/v1/artists/{}/top-tracks?market=US".format(artist_id)
+        response = requests.get(query, headers={"Content-Type": "application/json",
+                                                "Authorization": "Bearer {}".format(token)})
+        response_json = response.json()
+        track_info = self.top_track(response_json, token)
+        #print(track_info)
         return track_info
 #artist = Artist(3)
 #print(artist.random_track())
