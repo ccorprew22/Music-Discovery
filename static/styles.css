@@ -5,3 +5,52 @@
    font-size: 14pt;
    font-weight: bold;
  }
+
+.top-title {
+    font-size: 60px;
+ }
+ 
+ .album{
+    height: 256px; 
+    width: 256px;
+ }
+ .card-display{
+    width: 258px; 
+    height: 500px
+ }
+ 
+
+@media only screen and (max-width: 1200px) {
+    .col-xs-4, input[type=text]{
+        width: 100%;
+    }
+    .top-title{
+    font-size: 5vw;
+    }
+    .center{
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .album{
+        height: 360px; 
+        width: 360px;
+    }
+    .card-display{
+        height: 100%;
+        width: 362px;
+    }
+    .title{
+        font-size: 24pt;
+        font-weight: bold;
+    }
+    .artist{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 16pt;
+    }
+    .lyric_btn{
+        margin-top: 2px;
+    }
+}
+

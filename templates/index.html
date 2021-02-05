@@ -13,31 +13,31 @@
 </head>
 <!--Make background the album blurred -->
 
-<body class="bg-image p-5 m-3" style="background-image: url('{{url_for('static', filename='music.jpg')}}'); background-size: cover;">
+<body class="bg-image p-5 m-3" style="background-image: url('{{url_for('static', filename='music.jpg')}}'); background-size: cover; background-repeat: no-repeat;">
   <div class="text-center">
-    <h1 class="text-white" >Music Discovery</h1>
+    <h1 class="text-white top-title">Music Discovery</h1>
   </div>
   <!-- Search Box -->
   <form class="form-group row" action="/" method="post">
     <div class="form-row mx-auto">
-      <div class=" card-title col-xs-4">
+      <div class=" card-title col-xs-4 center">
         <input type="text" class="form-control" name="artist_input"  placeholder="Enter artist">
       </div>
-      <div class="input-group-append">
+      <div class="input-group-append center">
         <button type="submit" class="btn btn-primary mb-4" name="search-btn" aria-pressed="true" role="button">Search</button>
       </div>
     </div>
   </form>
   <!-- Search Box END -->
   <!-- Card Display -->
-  <div class="card mx-auto text-center" style="width: 258px; height: 500px">
-    <img class="card-img-top" src="{{artist['image']}}" style="height: 256px; width: 256px;">
+  <div class="card mx-auto text-center card-display">
+    <img class="card-img-top album" src="{{artist['image']}}">
     {% if error == True %}
       <h3>Artist not found</h3>
     {% endif %}
     <div class="card-body text-center">
       <h4 class="title">{{artist['track']}}</h4>
-      <p>by {{artist['artist']}}</p>
+      <p class="artist">by {{artist['artist']}}</p>
       <!-- Audio Preview -->
       {% if artist['preview'] == None %}
         <p>No preview available</p>
@@ -53,7 +53,7 @@
       <form action="/" method="post">
         <input type="hidden" name="artist" value="{{artist['artist']}}">
         <input type="hidden" name="track" value="{{artist['track']}}">
-        <button type="submit" class="btn btn-primary" role="button" name="search_lyrics">Search Lyrics</button>
+        <button type="submit" class="btn btn-primary lyric_btn" role="button" name="search_lyrics">Search Lyrics</button>
       </form>
       {% if lyric_error == True %}
         <h4>Lyrics not found</h4>
