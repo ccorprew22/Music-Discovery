@@ -43,16 +43,23 @@ def index():
             except:#This except function has an error message with the redirect
                 track_info = {"artist": "Pinkfong", "album": "Baby Shark Special", "track": "Baby Shark", "image": "/static/baby_shark.jpg", "preview": "/static/baby_shark.mp3"}
                 return render_template('index.html', artist=track_info, error=True, history=artist_hist, length=len(artist_hist))
+        elif request.method == 'POST' and "recent" in request.form: #replays song from history
+            index = int(request.form['index'])
+            a = artist_hist[index]
+            print(a)
+            #return render_template('index.html', artist=a, history=artist_hist, length=len(artist_hist))
         else: #Random song 
             i = random.randint(0, len(artist_ids)-1)
             artist = Artist(i)
             a = artist.random_track()
             print(a)
-        if len(artist_hist) == 5:
-            artist_hist.pop(0)
-            artist_hist.append(a)
-        else:
-            artist_hist.append(a)
+        #Adds to artist history
+        if a not in artist_hist:
+            if len(artist_hist) == 5:
+                artist_hist.pop(0)
+                artist_hist.append(a)
+            else:
+                artist_hist.append(a)
         print(artist_hist)
         print(len(artist_hist))
         return render_template('index.html', artist=a, history=artist_hist, length=len(artist_hist))

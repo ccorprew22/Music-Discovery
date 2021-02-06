@@ -70,6 +70,27 @@
       </div>
     </form>
   </div>
-
+  <br>
+  <!-- History starts -->
+  {% if length > 1 %}
+  <div class="row">
+    <div class="card mx-auto" style="width: 18rem;">
+      <div class="card-header">
+        Replay song!
+      </div>
+        <ul class="list-group list-group-flush">
+        {% for i in range(0,length-1) %}
+          <li class="list-group-item">
+            <form class="" action="/" method="post">
+              <input type="hidden" name="index" value="{{ i }}">
+              <button type="submit" class="btn bg-transparent history" name="recent">{{history[i]["track"]}}</button>
+            </form>
+          </li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+  </div>
+  <!-- History Ends -->
 </body>
 </html>
