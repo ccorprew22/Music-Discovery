@@ -13,7 +13,7 @@ def index():
     global artist_hist
     a = None
     try:
-        if request.method == 'POST' and "refresh" in request.form:
+        if request.method == 'POST' and "refresh" in request.form: #refresh
             i = random.randint(0, len(artist_ids)-1)
             artist = Artist(i)
             a = artist.random_track()
@@ -43,13 +43,20 @@ def index():
             except:#This except function has an error message with the redirect
                 track_info = {"artist": "Pinkfong", "album": "Baby Shark Special", "track": "Baby Shark", "image": "/static/baby_shark.jpg", "preview": "/static/baby_shark.mp3"}
                 return render_template('index.html', artist=track_info, error=True, history=artist_hist, length=len(artist_hist))
-        else:
+        else: #Random song 
             i = random.randint(0, len(artist_ids)-1)
             artist = Artist(i)
             a = artist.random_track()
             print(a)
+        if len(artist_hist) == 5:
+            artist_hist.pop(0)
+            artist_hist.append(a)
+        else:
+            artist_hist.append(a)
+        print(artist_hist)
+        print(len(artist_hist))
         return render_template('index.html', artist=a, history=artist_hist, length=len(artist_hist))
-    except:
+    except: #if something doesn't work
         print("Baby Shark")
         track_info = {"artist": "Pink Fong", "album": "Baby Shark", "track": "Baby Shark", "image": "https://cdns-images.dzcdn.net/images/cover/9d42e4daa95703c8665b72208d7b11fe/264x264.jpg", "preview": "/static/baby_shark.mp3"}
         return render_template('index.html', artist=track_info)
