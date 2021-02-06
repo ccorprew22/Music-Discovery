@@ -20,8 +20,9 @@
     height: 100%;
  }
  .history{
-  font-size: 8pt;
+  font-size: 9pt;
   text-align: left;
+  width: 100%;
 }
 
 @media only screen and (max-width: 800px) {
