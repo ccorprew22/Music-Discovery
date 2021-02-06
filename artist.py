@@ -5,7 +5,7 @@ import random
 import os
 from dotenv import load_dotenv, find_dotenv
 
-artist_ids = [["The Weeknd", "1Xyo4u8uXC1ZmMpatF05PJ"], ["ASAP Rocky", "13ubrt8QOOCPljQ2FL1Kca"], ["Drake", "3TVXtAsR1Inumwj472S9r4"], ["Post Malone", "246dkjvS1zLTtiykXe5h60"], ["Lil Baby","5f7VJjfbwm532GiveGC0ZK"], ["DaBaby", "4r63FhuTkUYltbVAg5TQnk"], ["Roddy Ricch", "757aE44tKEUQEqRuT6GnEB"],["Wiz Khalifa", "137W8MRPWKqSmrBGDBFSop"]]
+artist_ids = [["Juice Wrld", "4MCBfE4596Uoi2O4DtmEMz"],["The Weeknd", "1Xyo4u8uXC1ZmMpatF05PJ"], ["ASAP Rocky", "13ubrt8QOOCPljQ2FL1Kca"], ["Drake", "3TVXtAsR1Inumwj472S9r4"], ["Post Malone", "246dkjvS1zLTtiykXe5h60"], ["Lil Baby","5f7VJjfbwm532GiveGC0ZK"], ["DaBaby", "4r63FhuTkUYltbVAg5TQnk"], ["Roddy Ricch", "757aE44tKEUQEqRuT6GnEB"],["Wiz Khalifa", "137W8MRPWKqSmrBGDBFSop"]]
 
 load_dotenv(find_dotenv())
 

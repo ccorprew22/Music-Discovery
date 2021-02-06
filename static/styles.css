@@ -20,13 +20,10 @@
     height: 100%;
  }
  .history{
-  font-size: 9pt;
+  font-size: 8pt;
   text-align: left;
-  width: 100%;
 }
 
-
-/*Anything under 800px. FROM w3schools*/ 
 @media only screen and (max-width: 800px) {
     .col-xs-4, input[type=text]{
         width: 100%;
