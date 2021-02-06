@@ -24,6 +24,11 @@
   text-align: left;
   width: 100%;
 }
+.center{
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
 
 /*Anything under 800px. FROM w3schools*/ 
 @media only screen and (max-width: 800px) {
@@ -66,13 +71,16 @@
         font-size: 7vw;
     }
     .album{
-        height: 320px; 
+        height: 240px; 
         width: 240px;
     }
     .card-display{
         height: 100%;
         width: 242px;
-        margin-left: auto;
+    }
+    .center{
+        text-align: center;
         margin-right: auto;
+        margin-left: auto;
     }
 }
