@@ -59,3 +59,16 @@
     }
 }
 
+@media (min-width:320px){
+    .top-title{
+        font-size: 7vw;
+    }
+    .album{
+        height: 320px; 
+        width: 320px;
+    }
+    .card-display{
+        height: 100%;
+        width: 320px;
+    }
+}
