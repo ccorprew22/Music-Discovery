@@ -24,11 +24,7 @@
   text-align: left;
   width: 100%;
 }
-.center{
-        text-align: center;
-        margin-right: auto;
-        margin-left: auto;
-    }
+
 
 /*Anything under 800px. FROM w3schools*/ 
 @media only screen and (max-width: 800px) {
