@@ -2,6 +2,12 @@
 + Flask, Requests, json, python-dotenv, and urllib.request
 + Spotify API and Genius API
 
+# Setup
++ Create .env file in your project directory
++ Create a Spotify developer account to obtain an access genius_access_token
++ Base 64 encode your client id and secret key in this format: client_id:client_secret.
++ Add your base64 encoded string to your .env file and write export base64='YOUR_KEY_HERE'
+
 # How to Run Application
 + Run python app.py 
 + Enter "/" or "localhost:8080"
