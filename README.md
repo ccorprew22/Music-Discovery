@@ -2,11 +2,15 @@
 + Flask, Requests, json, python-dotenv, and urllib.request
 + Spotify API and Genius API
 
+# How to Run Application
++ Run python app.py 
++ Enter "/" or "localhost:8080"
+
 # How to deploy
 
 # Technical Issues
 1. Not every song had a song preview, which would break the app. So I wrote the function to either return None or a string with the preview url. If it was None, it would display an error message to the user.
-2. On mobile devices the page would look very out of proportion, to fix this I included a meta tag link that scales the app to device screen sizes.
+2. On mobile devices the page would look very out of proportion, to fix this I included a meta tag link that scales the app to device screen sizes. Reference https://stackoverflow.com/questions/32782454/how-can-i-make-an-html-page-automatically-fit-mobile-device-screens
 
 # Known Problems/Acknowledgements
 1. When parsing the JSON file sent through the Genius API, there are times when no url is found or it is provided with a url that redirects the user to a non-English speaking version of genius.com.
