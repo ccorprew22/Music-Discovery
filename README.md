@@ -29,7 +29,6 @@
 11. Go to Resources and make sure that the switch is turned on next to `web python app.py`.
 12. Your app is deployed to the internet
 
-
 ### Technical Issues
 1. Not every song had a song preview, which would break the app. So I wrote the function to either return None or a string with the preview url. If it was None, it would display an error message to the user.
 2. On mobile devices the page would look very out of proportion, to fix this I included a meta tag link that scales the app to device screen sizes. Reference https://stackoverflow.com/questions/32782454/how-can-i-make-an-html-page-automatically-fit-mobile-device-screens

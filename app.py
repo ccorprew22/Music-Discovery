@@ -21,21 +21,18 @@ def index():
             a = artist.random_track()
             print(a)
         elif request.method == 'POST' and "search_lyrics" in request.form: #redirects to genius url
-            try:
-                name = request.form['artist']
-                song = request.form['track']
-                artist = Artist(None, song, name)
-                url = artist.lyrics()
-                if url == None:
-                    i = random.randint(0, len(artist_ids)-1) #CHANGE THIS SO RANDOM METHOD TAKES PARAMETER INSTEAD OF CREATING NEW ARTIST
-                    artist = Artist(i)
-                    a = artist.random_track()
-                    return render_template('index.html', artist=a, lyric_error=True)
-                else:
-                    return redirect(url)
-            except:
-                print("Baby Shark working")
-                return redirect("https://genius.com/Pinkfong-baby-shark-lyrics")
+            name = request.form['artist']
+            song = request.form['track']
+            artist = Artist(None, song, name)
+            url = artist.lyrics()
+            if url != None:
+                return redirect(url)
+            else:
+                print("Lyrics not found")
+                i = random.randint(0, len(artist_ids)-1) #CHANGE THIS SO RANDOM METHOD TAKES PARAMETER INSTEAD OF CREATING NEW ARTIST
+                artist = Artist(i)
+                a = artist.random_track()
+                return render_template('index.html', artist=a,history=artist_hist, length=len(artist_hist), lyric_error=True)
         elif request.method == 'POST' and "search-btn" in request.form: #searches for input artist
             try:
                 name = request.form['artist_input']
