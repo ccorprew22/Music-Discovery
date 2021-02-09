@@ -67,7 +67,6 @@ def index():
         track_info = {"artist": "Pink Fong", "album": "Baby Shark", "track": "Baby Shark", "image": "https://cdns-images.dzcdn.net/images/cover/9d42e4daa95703c8665b72208d7b11fe/264x264.jpg", "preview": "/static/baby_shark.mp3"}
         return render_template('index.html', artist=track_info)
     
-
 if __name__ == "__main__":
     app.run(port = int(os.getenv('PORT', 5000)),
             host = os.getenv('IP', '0.0.0.0'),
