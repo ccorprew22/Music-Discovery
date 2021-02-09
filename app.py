@@ -55,7 +55,7 @@ def index():
             artist = Artist(i)
             a = artist.random_track()
             print(a)
-        #Adds to artist history
+        #Adds to artist history list
         if a not in artist_hist:
             if len(artist_hist) == 5:
                 artist_hist.pop(0)
