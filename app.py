@@ -5,6 +5,8 @@ import random
 import os
 
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
 global artist_hist
 artist_hist = []
 @app.route('/', methods=['POST', 'GET'])

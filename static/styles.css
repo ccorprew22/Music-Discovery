@@ -22,6 +22,7 @@
  .history{
   font-size: 8pt;
   text-align: left;
+  padding-left: 0px;
 }
 
 @media only screen and (max-width: 800px) {
