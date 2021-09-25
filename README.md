@@ -1,4 +1,4 @@
-# Music Discovery Application
+# Music Discovery App
 
 ## Heroku Link
 https://powerful-atoll-61635.herokuapp.com/
